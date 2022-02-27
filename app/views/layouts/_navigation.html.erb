@@ -9,15 +9,17 @@
         Account <i class="dropdown icon"></i>
         <div class="menu">
           <%if logged_in? %>
+            <%= link_to "Profile", user_path(id: current_user.id), class: "item" %>
             <%= link_to "Logout", logout_path, method: :delete, class: "item" %>
           <%else%>
             <%= link_to "Log in", login_path, class: "item"%>
+            <%= link_to "Sign up", signup_path, class: "item" %>
           <%end%>
         </div>
       </div>
       <%if !logged_in? %>
         <div class="item">
-            <%= link_to "Sign up", login_path, class: "ui primary button"%>
+            <%= link_to "Log in", login_path, class: "ui primary button"%>
         </div>
       <%end%>
     </div>
